@@ -1,3 +1,0 @@
-# xenelectronic-core
-
-XenElectronic Core
