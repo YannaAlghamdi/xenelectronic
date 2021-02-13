@@ -1,0 +1,54 @@
+categories-get:
+  get:
+    summary: 'Returns a list of categories.'
+    produces:
+      - 'application/json'
+    responses:
+      200:
+        description: 'List of categories'
+        schema:
+          type: array
+          items:
+            $ref: 'swagger.yaml#/definitions/Category'
+      400:
+        description: 'Bad request.'
+      401:
+        description: 'Authorization information is missing or invalid.'
+      404:
+        description: 'Not found.'
+categories-get-by-id:
+  get:
+    summary: 'Returns a category by ID'
+    parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+        description: ID of category
+    produces:
+      - 'application/json'
+    responses:
+      200:
+        description: 'Category'
+        # schema:
+        #   $ref: './components/swagger.yaml#/definitions/Company'
+      400:
+        description: 'Bad request.'
+      401:
+        description: 'Authorization information is missing or invalid.'
+      404:
+        description: 'Not found.'
+company-model:
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    datetime_created:
+      type: string
+    datetime_last_updated:
+      type: string
+      format: date-time
+    datetime_deleted:
+      type: string
+      format: date-time
