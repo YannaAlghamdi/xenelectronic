@@ -11,7 +11,7 @@ type Cart struct {
 
 type Item struct {
 	Product   *Product `json:"product,omitempty"`
-	ProductID string   `json:"need_id,omitempty" gorm:"type:uuid"`
+	ProductID string   `json:"product_id,omitempty" gorm:"type:uuid"`
 	CartID    string   `json:"cart_id,omitempty" gorm:"type:uuid"`
 }
 
