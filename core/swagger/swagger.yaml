@@ -1,0 +1,32 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  description: 'API documentation of Talino Crowd Connect core services.'
+  title: 'XenElectronic Core'
+host: 'localhost'
+basePath: '/'
+consumes:
+  - 'application/json'
+schemes:
+  - 'https'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: X-API-Key
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://example.com/oauth/authorize
+    tokenUrl: https://example.com/oauth/token
+    scopes:
+      read: Grants read access
+      write: Grants write access
+      admin: Grants read, write, and delete access
+definitions:
+  Cart:
+    $ref: './components/carts.yaml#/carts-model'
+  Category:
+    $ref: './components/categories.yaml#/categories-model'
+  Item:
+    $ref: './components/items.yaml#/items-model'

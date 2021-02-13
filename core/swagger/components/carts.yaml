@@ -1,0 +1,41 @@
+carts-get-by-id:
+  get:
+    summary: 'Returns cart details based on cart ID'
+    parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+        description: ID of cart to get
+    produces:
+      - 'application/json'
+    responses:
+      200:
+        description: 'cart'
+        # schema:
+        #   $ref: './components/swagger.yaml#/definitions/Donations'
+      400:
+        description: 'Bad request.'
+      401:
+        description: 'Authorization information is missing or invalid.'
+      404:
+        description: 'Not found.'
+# carts-model:
+#   properties:
+#     id:
+#       type: string
+#     projectId:
+#       type: string
+#     name:
+#       type: string
+#     tin:
+#       type: string
+#     datetime_created:
+#       type: string
+#     datetime_last_updated:
+#       type: string
+#       format: date-time
+#     datetime_deleted:
+#       type: string
+#       format: date-time
+
