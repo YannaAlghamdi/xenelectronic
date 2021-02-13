@@ -47,6 +47,8 @@ func (s *server) Start() {
 	router.HandleFunc("/categories/{id}/products", s.productHandler.ListProductsByCategoryId).Methods("GET")
 	router.HandleFunc("/categories", s.categoryHandler.ListCategories).Methods("GET")
 	router.HandleFunc("/carts", s.cartHandler.CreateCart).Methods("POST")
+	router.HandleFunc("/carts", s.cartHandler.AddProductToCart).Methods("PUT")
+	router.HandleFunc("/carts/{id}/products", s.cartHandler.ListProducts).Methods("GET")
 
 	http.Handle("/", router)
 	logger.Info("Server started on " + s.config.HTTP.Port)

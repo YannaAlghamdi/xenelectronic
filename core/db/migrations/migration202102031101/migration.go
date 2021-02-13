@@ -39,12 +39,15 @@ type Payment struct {
 
 type Cart struct {
 	BaseModel
+	Items   []Item `json:"items,omitempty"`
+	Payment Payment
 }
 
 type Item struct {
-	BaseModel
-	ProductID string `json:"product_id,omitempty" sql:"type:uuid;unique"`
-	CartID    string `json:"cart_id,omitempty" sql:"type:uuid"`
+	Product   Product `json:"product,omitempty"`
+	ProductID string  `json:"product_id,omitempty" gorm:"type:uuid"`
+	Cart      Cart
+	CartID    string `json:"cart_id,omitempty" gorm:"type:uuid;"`
 }
 
 var Migration = &gormigrate.Migration{
@@ -58,15 +61,6 @@ var Migration = &gormigrate.Migration{
 		if err := tx.Model(&Product{}).AddForeignKey("category_id", "categories(id)", "RESTRICT", "CASCADE").Error; err != nil {
 			return err
 		}
-
-		// if err := tx.Model(&Item{}).AddForeignKey("product_id", "products(id)", "RESTRICT", "RESTRICT").Error; err != nil {
-		// 	return err
-		// }
-
-		if err := tx.Model(&Item{}).AddForeignKey("cart_id", "carts(id)", "RESTRICT", "RESTRICT").Error; err != nil {
-			return err
-		}
-
 		return nil
 	},
 	Rollback: func(tx *gorm.DB) error {
