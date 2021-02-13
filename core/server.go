@@ -23,22 +23,30 @@ type Server interface {
 type server struct {
 	config          *config.Config
 	categoryHandler handler.CategoryHandler
+	productHandler  handler.ProductHandler
+	cartHandler     handler.CartHandler
 }
 
 func CreateServer(
 	cfg *config.Config,
 	categoryHandler handler.CategoryHandler,
+	productHandler handler.ProductHandler,
+	cartHandler handler.CartHandler,
 ) Server {
 	return &server{
 		config:          cfg,
 		categoryHandler: categoryHandler,
+		productHandler:  productHandler,
+		cartHandler:     cartHandler,
 	}
 }
 
 func (s *server) Start() {
 	router := mux.NewRouter()
 
+	router.HandleFunc("/categories/{id}/products", s.productHandler.ListProductsByCategoryId).Methods("GET")
 	router.HandleFunc("/categories", s.categoryHandler.ListCategories).Methods("GET")
+	router.HandleFunc("/carts", s.cartHandler.CreateCart).Methods("POST")
 
 	http.Handle("/", router)
 	logger.Info("Server started on " + s.config.HTTP.Port)

@@ -18,8 +18,11 @@ var DependencySet = wire.NewSet(
 	models.NewCategoryRepository,
 	models.NewCartRepository,
 	services.NewCartService,
+	services.NewProductService,
 	services.NewCategoryService,
 	handler.NewCategoryHandler,
+	handler.NewProductHandler,
+	handler.NewCartHandler,
 	// Change these next two lines to use a different DB client
 	db.NewPostgresClient,
 	wire.Bind(new(db.DBClient), new(*db.PostgresClient)),

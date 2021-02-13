@@ -6,6 +6,7 @@ import (
 
 	"github.com/YannaAlghamdi/xenelectronic/core/config"
 	"github.com/YannaAlghamdi/xenelectronic/core/db"
+	"github.com/YannaAlghamdi/xenelectronic/core/db/migrations/migration202102031101"
 	"gopkg.in/gormigrate.v1"
 )
 
@@ -30,7 +31,7 @@ func NewMigration(config *config.Config, dbClient db.DBClient) Migration {
 			dbClient: dbClient,
 			gormigrations: []*gormigrate.Migration{
 				migrationBase,
-				//migration202102031101.Migration,
+				migration202102031101.Migration,
 				migrationSeed,
 			},
 		}

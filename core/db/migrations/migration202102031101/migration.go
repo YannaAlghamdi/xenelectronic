@@ -17,12 +17,14 @@ type BaseModel struct {
 
 type Category struct {
 	BaseModel
-	Name     string    `json:"type,omitempty" gorm:"type:varchar"`
-	Products []Product `gorm:"many2many:products;association_autoupdate:false;association_autocreate:false"`
+	Name     string    `json:"type,omitempty" gorm:"type:varchar";`
+	Products []Product `json:"products,omitempty"`
 }
 
 type Product struct {
 	BaseModel
+	Category    Category
+	CategoryID  string          `json:"category_id,omitempty" sql:"type:uuid;"`
 	Name        string          `json:"name" gorm:"type:varchar"`
 	Description string          `json:"description" gorm:"type:varchar"`
 	Price       decimal.Decimal `json:"price,omitempty" gorm:"type:decimal"`
@@ -53,13 +55,13 @@ var Migration = &gormigrate.Migration{
 			return err
 		}
 
-		if err := tx.Model(&Product{}).AddForeignKey("category_id", "categories(id)", "RESTRICT", "RESTRICT").Error; err != nil {
+		if err := tx.Model(&Product{}).AddForeignKey("category_id", "categories(id)", "RESTRICT", "CASCADE").Error; err != nil {
 			return err
 		}
 
-		if err := tx.Model(&Item{}).AddForeignKey("product_id", "products(id)", "RESTRICT", "RESTRICT").Error; err != nil {
-			return err
-		}
+		// if err := tx.Model(&Item{}).AddForeignKey("product_id", "products(id)", "RESTRICT", "RESTRICT").Error; err != nil {
+		// 	return err
+		// }
 
 		if err := tx.Model(&Item{}).AddForeignKey("cart_id", "carts(id)", "RESTRICT", "RESTRICT").Error; err != nil {
 			return err
