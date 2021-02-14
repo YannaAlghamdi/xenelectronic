@@ -8,7 +8,7 @@ wire:
 
 build:
 	go mod vendor
-	go build -mod=vendor -o dist/$(NAME) $(FILES)
+	env GOOS=linux GOARCH=amd64 GOARM=7 go build -mod=vendor -o dist/$(NAME) $(FILES)
 
 run:
 	./dist/${NAME} serve
