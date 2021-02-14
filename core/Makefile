@@ -1,4 +1,4 @@
-NAME = xeneelectronic-core
+NAME = xenelectronic-core
 FILES = main.go server.go wire_gen.go
 ID = ""
 
@@ -14,13 +14,13 @@ run:
 	./dist/${NAME} serve
 
 migrate: build
-	./dist/xeneelectronic-core migrate
+	./dist/xenelectronic-core migrate
 
 migrate-one: build
-	./dist/xeneelectronic-core migrate --id=$(ID)
+	./dist/xenelectronic-core migrate --id=$(ID)
 
 rollback: build
-	./dist/xeneelectronic-core rollback
+	./dist/xenelectronic-core rollback
 
 rollback-one: build
-	./dist/xeneelectronic-core rollback --id=$(ID)
+	./dist/xenelectronic-core rollback --id=$(ID)
