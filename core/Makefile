@@ -1,4 +1,4 @@
-NAME = xeneelectronic-core
+NAME = xenelectronic-core
 FILES = main.go server.go wire_gen.go
 ID = ""
 
