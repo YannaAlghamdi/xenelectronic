@@ -2,9 +2,11 @@ http:
   port: ':8080'
 
 postgres:
-  host: localhost
+  host: ec2-35-171-57-132.compute-1.amazonaws.com
   port: 5432
-  db: postgres
-  user: postgres
-  password: xenelectronic_core
-  sslMode: disable
+  db: d6f2om4t61vup4
+  user: jhzeecklduekbk
+  password: dd8b863c41af0aa5f8ecff8ce787f52b46dde732e88db0ebe3fd8f61eb51be71
+  sslMode: require
+  sslFactory: org.postgresql.ssl.NonValidatingFactory
+# postgres://jhzeecklduekbk:dd8b863c41af0aa5f8ecff8ce787f52b46dde732e88db0ebe3fd8f61eb51be71@ec2-35-171-57-132.compute-1.amazonaws.com:5432/d6f2om4t61vup4

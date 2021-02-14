@@ -38,11 +38,12 @@ type Config struct {
 		Port string
 	} `yaml:"http"`
 	Postgres struct {
-		Host     string
-		Port     string
-		Db       string
-		User     string
-		Password string
-		SSLMode  string `yaml:"sslMode"`
+		Host       string
+		Port       string
+		Db         string
+		User       string
+		Password   string
+		SSLMode    string `yaml:"sslMode"`
+		SSLFactory string `yaml:"sslFactory"`
 	} `yaml:"postgres"`
 }
