@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/YannaAlghamdi/xenelectronic/core/config"
 	handler "github.com/YannaAlghamdi/xenelectronic/core/handlers"
@@ -47,6 +48,11 @@ func CreateServer(
 
 func (s *server) Start() {
 	router := mux.NewRouter()
+	port := ":" + os.Getenv("PORT")
+
+	if port == ":" {
+		port = s.config.HTTP.Port
+	}
 
 	router.HandleFunc("/categories/{id}/products", s.productHandler.ListProductsByCategoryId).Methods("GET")
 	router.HandleFunc("/categories", s.categoryHandler.ListCategories).Methods("GET")
@@ -62,6 +68,6 @@ func (s *server) Start() {
 	methodsOK := handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS", "DELETE", "PUT"})
 
 	http.Handle("/", handlers.CORS(originsOK, headersOK, methodsOK)(router))
-	logger.Info("Server started on " + s.config.HTTP.Port)
-	fmt.Println(http.ListenAndServe(s.config.HTTP.Port, nil))
+	logger.Info("Server started on " + port)
+	fmt.Println(http.ListenAndServe(port, nil))
 }
