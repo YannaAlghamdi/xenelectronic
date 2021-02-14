@@ -1,5 +1,5 @@
 http:
-  port: ':8080'
+  port: ':37579'
 
 postgres:
   host: ec2-35-171-57-132.compute-1.amazonaws.com
