@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@agney/ir-toast": "^0.2.0",
-    "ionic":"latest",
+    "@ionic/cli": "6.12.4",
     "@ionic/react": "^5.5.0",
     "@ionic/react-router": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",
