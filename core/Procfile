@@ -1,1 +1,1 @@
-web: /dist/xenelectronic-core
+web: ./dist/xenelectronic-core
