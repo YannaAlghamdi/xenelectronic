@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 interface ContainerProps { }
 
-const  endpoint  =  `http://localhost:8080`;
+const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
 const Success: React.FC<ContainerProps> = () => {
 

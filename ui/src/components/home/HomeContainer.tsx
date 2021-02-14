@@ -6,7 +6,7 @@ import { laptopOutline, tvOutline, watchOutline, tabletPortraitOutline, phonePor
 
 interface ContainerProps { }
 
-const  endpoint  =  `http://localhost:8080`;
+const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
 const sendGetRequest = () => {
 	return axios({
