@@ -1,0 +1,18 @@
+.card-icon {
+  font-size: 8rem;
+  color: #3e3f43;
+}
+
+ion-card {
+  background-color: #9abeb6;
+  padding: 1rem;
+}
+
+ion-card-title {
+  color: #3e3f43;
+  font-family: 'Nunito';
+}
+
+.row {
+  margin: 0 5rem;
+}

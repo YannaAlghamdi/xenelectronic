@@ -1,0 +1,7 @@
+ion-title a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #3e3f43;
+  font-family: 'Nunito';
+}

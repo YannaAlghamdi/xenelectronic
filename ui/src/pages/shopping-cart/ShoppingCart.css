@@ -1,0 +1,29 @@
+.card {
+  background-color: transparent;
+  padding: 1rem;
+  font-family: 'Nunito';
+}
+
+.item-thumbnail {
+  margin: 1rem;
+  width: auto;
+  height: 6rem;
+}
+
+.col-item {
+  margin: 3rem 0;
+}
+
+.col-remove-item {
+  margin: 2.2rem 0;
+}
+
+.col-remove-item ion-icon {
+  color: #fff;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: 'Nunito';
+}
