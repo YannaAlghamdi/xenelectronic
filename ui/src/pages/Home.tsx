@@ -11,7 +11,8 @@ const  endpoint  =  `http://localhost:8080`;
 const createCart = () => {
   axios.post(`${endpoint}/carts`, { })
     .then(res => {
-      localStorage.setItem('cartId', res.data.id);
+      if(!localStorage.getItem('cartId'))
+        localStorage.setItem('cartId', res.data.id);
     })
   }
 

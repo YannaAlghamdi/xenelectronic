@@ -1,6 +1,7 @@
 import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './HeaderContainer.css';
 import { personCircle, search, helpCircle, star, create, ellipsisHorizontal, ellipsisVertical, cartOutline } from 'ionicons/icons';
+import { Link } from 'react-router-dom';
 
 
 const HeaderContainer: React.FC = () => {
@@ -20,7 +21,7 @@ const HeaderContainer: React.FC = () => {
               <IonIcon slot="icon-only" ios={ellipsisHorizontal} md={ellipsisVertical} />
             </IonButton>
           </IonButtons>
-          <IonTitle>XenElectronic</IonTitle>
+          <IonTitle><Link to="/home">XenElectronic</Link></IonTitle>
         </IonToolbar>
       </IonHeader>
   );

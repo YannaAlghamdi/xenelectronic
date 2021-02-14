@@ -87,7 +87,7 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
                 Total
               </IonCol>
               <IonCol size="2" className="col-item header">
-                 {getTotal()}
+                 {getTotal().toFixed(2)}
               </IonCol>
               <IonCol size="2">
                   
