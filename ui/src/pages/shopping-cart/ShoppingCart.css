@@ -27,3 +27,16 @@
   font-size: 1rem;
   font-family: 'Nunito';
 }
+
+.no-item-col {
+  margin: 2rem;
+}
+
+.no-item {
+  font-size: 1.25rem;
+}
+
+.checkout-btn {
+  --background: #737373;
+  text-transform: capitalize;
+}

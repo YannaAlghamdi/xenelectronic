@@ -23,8 +23,8 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
   };
 
   const [items, setItems] = React.useState([]);
-    React.useEffect(() => {
-      getShoppingCart().then(data => setItems(data));
+  React.useEffect(() => {
+    getShoppingCart().then(data => setItems(data));
   }, []);
   
   const getTotal = () => {
@@ -34,6 +34,21 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
     })
     return sum;
   }
+
+
+  const DeleteItem = async (productId : string, index: number) => {
+    var array = [...items]; // make a separate copy of the array
+      array.splice(index, 1);
+      setItems(array);
+    
+    const response = await axios({
+      method: 'delete',
+      url: `${endpoint}/carts/products/${productId}`,
+      responseType: 'stream'
+    });
+    console.log(response);
+    return response.data;
+  };
 
   return (
     <IonPage>
@@ -58,7 +73,9 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
                   
                 </IonCol>
               </IonRow>
+              
               {
+                items.length ?
             items.map((item, index) => {
               return (
                   <IonRow key={item['id']}>
@@ -72,13 +89,18 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
                       {item['price']}
                     </IonCol>
                     <IonCol size="2">
-                      <IonButton color="danger" class="col-remove-item">
+                      <IonButton onClick={() => DeleteItem(item['id'], index)} color="danger" class="col-remove-item">
                         <IonIcon slot="icon-only" icon={trashOutline}></IonIcon>
                       </IonButton>
                     </IonCol>
                   </IonRow>
               );
-            })
+            }) : 
+            <IonRow>
+              <IonCol className="ion-text-center no-item-col">
+                <IonLabel className="no-item">There are no items in your cart.</IonLabel>
+              </IonCol>
+            </IonRow>
           }
               <IonRow>
                 <IonCol size="5">
@@ -92,6 +114,15 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
                 <IonCol size="2">
                     
                 </IonCol>
+              </IonRow>  
+              <IonRow>
+                <IonCol size="12" className="ion-text-right">
+                  <IonButton routerLink={`/checkout/${localStorage.getItem("cartId")}`}
+                 routerDirection="forward" class="col-remove-item checkout-btn">
+                    <IonLabel>Go to Checkout</IonLabel>
+                  </IonButton>
+                </IonCol>
+
               </IonRow>   
               </IonCardContent>
             </IonCard>

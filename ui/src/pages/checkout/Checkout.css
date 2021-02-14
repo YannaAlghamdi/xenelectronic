@@ -1,0 +1,17 @@
+* {
+  font-family: 'Nunito' !important;
+}
+.checkout-card {
+  background-color: transparent;
+  margin: 0 5rem;
+}
+
+.card-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.btn-submit {
+  --background: #737373;
+}

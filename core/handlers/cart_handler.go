@@ -19,6 +19,7 @@ type CartHandler interface {
 	AddProductToCart(res http.ResponseWriter, req *http.Request)
 	ListProducts(res http.ResponseWriter, req *http.Request)
 	ListCarts(res http.ResponseWriter, req *http.Request)
+	DeleteCartItem(res http.ResponseWriter, req *http.Request)
 }
 
 func NewCartHandler(service services.CartService) CartHandler {
@@ -86,4 +87,16 @@ func (cartHandler *cartHandler) ListCarts(res http.ResponseWriter, req *http.Req
 		return
 	}
 	common.WriteOK(res, products)
+}
+
+func (cartHandler *cartHandler) DeleteCartItem(res http.ResponseWriter, req *http.Request) {
+	vars := mux.Vars(req)
+
+	id := vars["id"]
+	err := cartHandler.service.DeleteCartItem(id)
+	if err != nil {
+		common.WriteUnknownError(res)
+		return
+	}
+	common.WriteOK(res, nil)
 }

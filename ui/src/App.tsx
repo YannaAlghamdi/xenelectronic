@@ -24,6 +24,8 @@ import './theme/variables.css';
 import Product from './pages/products/Product';
 import { ToastProvider } from '@agney/ir-toast';
 import ShoppingCart from './pages/shopping-cart/ShoppingCart';
+import Checkout from './pages/checkout/Checkout';
+import Success from './pages/success/Success';
 
 const App: React.FC = () => (
   <IonApp>
@@ -41,6 +43,12 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/cart">
             <ShoppingCart/>
+          </Route>
+          <Route exact path="/checkout/:id">
+            <Checkout/>
+          </Route>
+          <Route exact path="/checkout/success/:id">
+            <Success/>
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>

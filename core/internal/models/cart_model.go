@@ -15,7 +15,8 @@ type Payment struct {
 
 type Cart struct {
 	BaseModel
-	Items []Item `json:"items,omitempty"`
+	OrderID string
+	Items   []Item `json:"items,omitempty"`
 	//Payment Payment
 }
 
@@ -99,4 +100,18 @@ func (repo *CartRepository) GetProducts(cartId string) ([]Product, error) {
 	}
 
 	return products, nil
+}
+
+func (repo *CartRepository) DeleteCartItem(productId string) error {
+	db, close := repo.Connect()
+	defer close()
+
+	item := Item{}
+
+	if err := db.Table("items").Where("product_id = ?", productId).Delete(&item).Error; err != nil {
+		return err
+	}
+
+	return nil
+
 }
