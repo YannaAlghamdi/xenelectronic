@@ -6,7 +6,7 @@ import HeaderContainer from '../components/header/HeaderContainer';
 import axios from 'axios';
 
 
-const  endpoint  =  `http://localhost:8080`;
+const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
 const createCart = () => {
   axios.post(`${endpoint}/carts`, { })

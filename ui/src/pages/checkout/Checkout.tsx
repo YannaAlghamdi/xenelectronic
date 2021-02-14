@@ -9,7 +9,7 @@ import { useHistory } from 'react-router';
 
 interface ContainerProps { }
 
-const  endpoint  =  `http://localhost:8080`;
+const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
 const Checkout: React.FC<ContainerProps> = () => {
 

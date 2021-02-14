@@ -12,7 +12,7 @@ interface ProductPageProps extends RouteComponentProps<{
     category: string
   }> {}
 
-const  endpoint  =  `http://localhost:8080`;
+const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
 
 const Product: React.FC<ProductPageProps> = ({match}) => {
