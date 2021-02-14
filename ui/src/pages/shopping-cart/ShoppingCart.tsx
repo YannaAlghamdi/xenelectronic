@@ -80,38 +80,24 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
               );
             })
           }
-            <IonRow>
-              <IonCol size="5">
-              </IonCol>
-              <IonCol size="3" className="col-item header ion-text-center">
-                Total
-              </IonCol>
-              <IonCol size="2" className="col-item header">
-                 {getTotal().toFixed(2)}
-              </IonCol>
-              <IonCol size="2">
-                  
-              </IonCol>
-            </IonRow>   
-            </IonCardContent>
-          </IonCard>
-        </IonCol>
-          {/* {
-            items.map((item, index) => {
-              return (
-                  <IonCol size="6" key={item['id']}>
-                    <IonCard className="card"
-                    routerDirection="forward">
-                      <IonCardContent className="ion-text-center">
-                      <IonCardTitle>{item['name']}</IonCardTitle>
-                      </IonCardContent>
-                    </IonCard>
-                  </IonCol>
-              );
-            })
-          } */}
-          </IonRow>
-        </IonContent>
+              <IonRow>
+                <IonCol size="5">
+                </IonCol>
+                <IonCol size="3" className="col-item header ion-text-center">
+                  Total
+                </IonCol>
+                <IonCol size="2" className="col-item header">
+                  {getTotal().toFixed(2)}
+                </IonCol>
+                <IonCol size="2">
+                    
+                </IonCol>
+              </IonRow>   
+              </IonCardContent>
+            </IonCard>
+          </IonCol>
+        </IonRow>
+      </IonContent>
     </IonPage>
   );
 };
