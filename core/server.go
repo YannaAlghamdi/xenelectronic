@@ -26,6 +26,7 @@ type server struct {
 	categoryHandler handler.CategoryHandler
 	productHandler  handler.ProductHandler
 	cartHandler     handler.CartHandler
+	orderHandler    handler.OrderHandler
 }
 
 func CreateServer(
@@ -33,12 +34,14 @@ func CreateServer(
 	categoryHandler handler.CategoryHandler,
 	productHandler handler.ProductHandler,
 	cartHandler handler.CartHandler,
+	orderHandler handler.OrderHandler,
 ) Server {
 	return &server{
 		config:          cfg,
 		categoryHandler: categoryHandler,
 		productHandler:  productHandler,
 		cartHandler:     cartHandler,
+		orderHandler:    orderHandler,
 	}
 }
 
@@ -50,7 +53,9 @@ func (s *server) Start() {
 	router.HandleFunc("/carts", s.cartHandler.CreateCart).Methods("POST")
 	router.HandleFunc("/carts", s.cartHandler.ListCarts).Methods("GET")
 	router.HandleFunc("/carts", s.cartHandler.AddProductToCart).Methods("PUT")
+	router.HandleFunc("/carts/products/{id}", s.cartHandler.DeleteCartItem).Methods("DELETE")
 	router.HandleFunc("/carts/{id}/products", s.cartHandler.ListProducts).Methods("GET")
+	router.HandleFunc("/orders", s.orderHandler.Create).Methods("POST")
 
 	headersOK := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
 	originsOK := handlers.AllowedOrigins([]string{"*"})

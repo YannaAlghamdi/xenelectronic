@@ -28,7 +28,10 @@ func buildServer(cfg *config.Config) (Server, error) {
 	cartRepository := models.NewCartRepository(postgresClient)
 	cartService := services.NewCartService(cartRepository)
 	cartHandler := handler.NewCartHandler(cartService)
-	mainServer := CreateServer(cfg, categoryHandler, productHandler, cartHandler)
+	orderRepository := models.NewOrderRepository(postgresClient)
+	orderService := services.NewOrderService(orderRepository)
+	orderHandler := handler.NewOrderHandler(orderService)
+	mainServer := CreateServer(cfg, categoryHandler, productHandler, cartHandler, orderHandler)
 	return mainServer, nil
 }
 
@@ -41,7 +44,7 @@ func initializeMigration(cfg *config.Config) (migrations.Migration, error) {
 // wire.go:
 
 var DependencySet = wire.NewSet(
-	CreateServer, models.NewProductRespository, models.NewCategoryRepository, models.NewCartRepository, services.NewCartService, services.NewProductService, services.NewCategoryService, handler.NewCategoryHandler, handler.NewProductHandler, handler.NewCartHandler, db.NewPostgresClient, wire.Bind(new(db.DBClient), new(*db.PostgresClient)),
+	CreateServer, models.NewProductRespository, models.NewCategoryRepository, models.NewCartRepository, models.NewOrderRepository, services.NewCartService, services.NewProductService, services.NewCategoryService, services.NewOrderService, handler.NewOrderHandler, handler.NewCategoryHandler, handler.NewProductHandler, handler.NewCartHandler, db.NewPostgresClient, wire.Bind(new(db.DBClient), new(*db.PostgresClient)),
 )
 
 var MigrationSet = wire.NewSet(migrations.NewMigration, db.NewPostgresClient, wire.Bind(new(db.DBClient), new(*db.PostgresClient)))

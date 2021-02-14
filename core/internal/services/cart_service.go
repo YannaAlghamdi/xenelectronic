@@ -13,6 +13,7 @@ type CartService interface {
 	ListCarts() (models.Cart, error)
 	AddProductToCart(cartId string, productId string) error
 	ListProducts(cartId string) ([]models.Product, error)
+	DeleteCartItem(productId string) error
 }
 
 func NewCartService(cart *models.CartRepository) CartService {
@@ -35,4 +36,8 @@ func (service *cartService) ListProducts(cartId string) ([]models.Product, error
 
 func (service *cartService) ListCarts() (models.Cart, error) {
 	return service.cart.Get()
+}
+
+func (service *cartService) DeleteCartItem(productId string) error {
+	return service.cart.DeleteCartItem(productId)
 }

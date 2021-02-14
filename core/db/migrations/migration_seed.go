@@ -48,7 +48,7 @@ var migrationSeed = &gormigrate.Migration{
 						Name:        "Samsung TV",
 						Description: "55 Inch 55Bx Class 4K Self-Lit With AI ThinQ Smart OLED TV (New 2021) OLED55BXPVA Black",
 						Price:       decimal.NewFromFloat(45000),
-						Photo:       "https://lh3.googleusercontent.com/proxy/7x11AqUvDU0ET6wmUArgRFnME6Kd_ds2jJ-qqxmHs7q-3x0ZwMbk5lZuKozK1RCKuQhyhdIUZ96h60okNjtIn2aaGgi0cj0lVUzzTwda4GqxE0oEgg",
+						Photo:       "https://images.samsung.com/is/image/samsung/au-full-hd-k5500-ua32k5500awxxy-006-front-black?$330_330_JPG$",
 					},
 					{
 						Name:        "LG TV (refurbished)",

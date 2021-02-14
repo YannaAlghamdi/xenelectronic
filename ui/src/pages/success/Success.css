@@ -1,0 +1,37 @@
+.success-icon {
+  font-size: 5rem;
+  color: teal;
+}
+
+.success-card {
+  background-color: transparent;
+  margin: 5rem;
+  border-style: none;
+  box-shadow: 0 0 black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.success-card ion-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-icon {
+  font-size: 6rem;
+  color: #3e3f43;
+  margin: 3rem 3rem 1rem;
+}
+
+.success-label {
+  font-size: 2rem;
+}
+
+small a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #3e3f43;
+  font-family: 'Nunito';
+}
