@@ -94,3 +94,4 @@ ionic serve
 ##Deployed Apps
 
 - Server: https://xenelectronic-app.herokuapp.com
+- UI: https://xenelectronic-ui.herokuapp.com/
