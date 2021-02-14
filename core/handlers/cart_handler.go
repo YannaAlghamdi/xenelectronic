@@ -18,6 +18,7 @@ type CartHandler interface {
 	CreateCart(res http.ResponseWriter, req *http.Request)
 	AddProductToCart(res http.ResponseWriter, req *http.Request)
 	ListProducts(res http.ResponseWriter, req *http.Request)
+	ListCarts(res http.ResponseWriter, req *http.Request)
 }
 
 func NewCartHandler(service services.CartService) CartHandler {
@@ -70,6 +71,16 @@ func (cartHandler *cartHandler) ListProducts(res http.ResponseWriter, req *http.
 	id := vars["id"]
 
 	products, err := cartHandler.service.ListProducts(id)
+	if err != nil {
+		common.WriteUnknownError(res)
+		return
+	}
+	common.WriteOK(res, products)
+}
+
+func (cartHandler *cartHandler) ListCarts(res http.ResponseWriter, req *http.Request) {
+
+	products, err := cartHandler.service.ListCarts()
 	if err != nil {
 		common.WriteUnknownError(res)
 		return
