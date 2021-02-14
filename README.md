@@ -90,3 +90,7 @@ go run --mod=vendor ./ serve
 cd ui
 ionic serve
 ```
+
+##Deployed Apps
+
+- Server: https://xenelectronic-app.herokuapp.com
