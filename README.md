@@ -91,6 +91,9 @@ cd ui
 ionic serve
 ```
 
-##Deployed Apps
+## Deployed Apps
+
+The apps are deployed via Heroku with the following URLs:
 
 - Server: https://xenelectronic-app.herokuapp.com
+- UI: https://xenelectronic-ui.herokuapp.com/
