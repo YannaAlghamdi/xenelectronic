@@ -10,6 +10,7 @@ type cartService struct {
 
 type CartService interface {
 	CreateCart(data *models.Cart) error
+	ListCarts() (models.Cart, error)
 	AddProductToCart(cartId string, productId string) error
 	ListProducts(cartId string) ([]models.Product, error)
 }
@@ -30,4 +31,8 @@ func (service *cartService) AddProductToCart(cartId string, productId string) er
 
 func (service *cartService) ListProducts(cartId string) ([]models.Product, error) {
 	return service.cart.GetProducts(cartId)
+}
+
+func (service *cartService) ListCarts() (models.Cart, error) {
+	return service.cart.Get()
 }

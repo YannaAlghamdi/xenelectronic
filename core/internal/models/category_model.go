@@ -4,7 +4,7 @@ import "github.com/YannaAlghamdi/xenelectronic/core/db"
 
 type Category struct {
 	BaseModel
-	Name     string    `json:"type,omitempty" gorm:"type:varchar";`
+	Name     string    `json:"name,omitempty" gorm:"type:varchar";`
 	Products []Product `json:"products,omitempty"`
 }
 

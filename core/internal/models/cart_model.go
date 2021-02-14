@@ -46,6 +46,20 @@ func (repo *CartRepository) Create(cart *Cart) error {
 
 }
 
+func (repo *CartRepository) Get() (Cart, error) {
+	db, close := repo.Connect()
+	defer close()
+
+	var cart Cart
+
+	if err := db.First(&cart).Error; err != nil {
+		return cart, err
+	}
+
+	return cart, nil
+
+}
+
 func (repo *CartRepository) AddProductToCart(productId string, cartId string) error {
 	db, close := repo.Connect()
 	defer close()
