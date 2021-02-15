@@ -47,9 +47,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pretest": "eslint src/**/*.tsx src/**/*.tsx src/**/**/*.tsx",
-    "prepush": "npm run lint && npm run pretest",
-    "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit"
+    "pretest": "eslint src/**/*.tsx src/**/*.tsx src/**/**/*.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretest"
+    }
   },
   "eslintConfig": {
     "extends": [
