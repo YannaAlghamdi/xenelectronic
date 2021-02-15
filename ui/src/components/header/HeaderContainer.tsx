@@ -1,8 +1,8 @@
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/react';
 import './HeaderContainer.css';
-import { personCircle, search, helpCircle, star, create, ellipsisHorizontal, ellipsisVertical, cartOutline } from 'ionicons/icons';
+import { ellipsisHorizontal, ellipsisVertical, cartOutline } from 'ionicons/icons';
 import { Link } from 'react-router-dom';
-
+import React from 'react';
 
 const HeaderContainer: React.FC = () => {
   return (

@@ -1,13 +1,10 @@
-import { IonCard, IonCardContent, IonCol, IonContent, IonIcon, IonLabel, IonPage, IonRow } from '@ionic/react';
+import { IonCard, IonCardContent, IonCol, IonContent, IonLabel, IonPage, IonRow } from '@ionic/react';
 import './Success.css';
-import { checkmarkCircleOutline, trashOutline } from 'ionicons/icons';
 import HeaderContainer from '../../components/header/HeaderContainer';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface ContainerProps { }
-
-const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
 const Success: React.FC<ContainerProps> = () => {
 

@@ -20,6 +20,8 @@
     "ionicons": "^5.4.0",
     "eslint": "^7.20.0",
     "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^5.0.9",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
@@ -45,7 +47,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pretest": "eslint --ignore-path .gitignore ."
+    "pretest": "eslint src/**/*.tsx src/**/*.tsx src/**/**/*.tsx",
+    "prepush": "npm run lint && npm run pretest",
+    "postinstall": "rm -rf .git/hooks/pre-push && node node_modules/husky/bin/install.js && rm -rf .git/hooks/pre-commit"
   },
   "eslintConfig": {
     "extends": [
@@ -67,8 +71,11 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.20.0",
     "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^5.0.9",
     "react-scripts": "4.0.2"
   }
 }

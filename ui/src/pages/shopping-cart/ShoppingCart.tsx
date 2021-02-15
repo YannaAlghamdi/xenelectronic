@@ -1,6 +1,6 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton, IonRow, IonCol, IonButtons, IonImg, IonThumbnail } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardTitle, IonCardContent,IonIcon, IonLabel, IonButton, IonRow, IonCol, IonImg } from '@ionic/react';
 import './ShoppingCart.css';
-import { personCircle, search, helpCircle, star, create, ellipsisHorizontal, ellipsisVertical, cartOutline, trashOutline } from 'ionicons/icons';
+import {trashOutline } from 'ionicons/icons';
 import HeaderContainer from '../../components/header/HeaderContainer';
 import axios from 'axios';
 import React from 'react';
@@ -17,7 +17,6 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
         url: `${endpoint}/carts/${localStorage.getItem('cartId')}/products`,
         responseType: 'stream'
     }).then(response => {
-      console.log(response);
       return response.data;
     })
   };
@@ -46,7 +45,6 @@ const ShoppingCart: React.FC<ContainerProps> = () => {
       url: `${endpoint}/carts/products/${productId}`,
       responseType: 'stream'
     });
-    console.log(response);
     return response.data;
   };
 

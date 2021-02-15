@@ -1,1 +1,21 @@
-{"extends": "strongloop"}
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "globals": {
+    "localStorage": true,
+    "fetch": true
+  },
+  "rules": {
+    "no-unused-vars": ["error", { "caughtErrors": "none" }],
+    "react/react-in-jsx-scope": 0,
+    "no-console": 1
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["react"]
+}
