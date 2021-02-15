@@ -18,6 +18,8 @@
     "@types/react-router-dom": "^5.1.7",
     "axios": "^0.21.1",
     "ionicons": "^5.4.0",
+    "eslint": "^7.20.0",
+    "eslint-config-strongloop": "^2.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
@@ -42,7 +44,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pretest": "eslint --ignore-path .gitignore ."
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +67,8 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-strongloop": "^2.1.0",
     "react-scripts": "4.0.2"
   }
 }
