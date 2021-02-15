@@ -7,6 +7,8 @@ XenElectronic is an MVP of an electronic and appliance online store
 - Go 1.15.7
 - PostgreSQL
 - Ionic Framework
+- Heroku
+- Husky
 
 ## Setup
 
