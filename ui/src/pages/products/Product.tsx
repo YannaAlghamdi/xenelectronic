@@ -1,6 +1,6 @@
 import './Product.css';
 import HeaderContainer from '../../components/header/HeaderContainer';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton, IonRow, IonCol, IonButtons, IonImg, IonThumbnail } from '@ionic/react';
+import { IonContent, IonPage, IonCard,  IonCardSubtitle, IonCardTitle, IonCardContent,  IonLabel, IonButton, IonRow, IonCol,  IonImg } from '@ionic/react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import axios from 'axios';
 import React from 'react';
@@ -14,7 +14,7 @@ interface ProductPageProps extends RouteComponentProps<{
 
 const  endpoint  =  `https://xenelectronic-app.herokuapp.com`;
 
-
+// eslint-disable-next-line react/prop-types  
 const Product: React.FC<ProductPageProps> = ({match}) => {
    
   const Toast = useToast();
@@ -23,7 +23,8 @@ const Product: React.FC<ProductPageProps> = ({match}) => {
           "product_id": productId,
           "cart_id": localStorage.getItem('cartId'),
       })
-        .then(res => {
+      // eslint-disable-next-line no-unused-vars
+        .then(_ => { 
           const toast = Toast.create({ message: 'Product successfully added to cart', duration: 2000 });
           toast.present();
         })
@@ -32,10 +33,10 @@ const Product: React.FC<ProductPageProps> = ({match}) => {
     const sendGetRequest = () => {
       return axios({
       method: 'get',
+          // eslint-disable-next-line react/prop-types  
           url: `${endpoint}/categories/${match.params.id}/products`,
           responseType: 'stream'
       }).then(response => {
-          console.log(response);
           return response.data;
       })
     };
@@ -51,12 +52,13 @@ const Product: React.FC<ProductPageProps> = ({match}) => {
         <IonContent>
           <IonRow className="row">
             <IonCol  className="ion-text-center category-label">
+            {/* eslint-disable-next-line react/prop-types */}
               <IonLabel>{match.params.category}</IonLabel>
             </IonCol>
           </IonRow>
           <IonRow className="row">
           {
-            items.map((item, index) => {
+            items.map((item) => {
               return (
                 
                   <IonCol size="6" key={item['id']}>

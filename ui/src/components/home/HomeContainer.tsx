@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton, IonRow, IonCol } from '@ionic/react';
+import { IonContent, IonCard, IonCardTitle, IonCardContent, IonIcon, IonRow, IonCol } from '@ionic/react';
 import './HomeContainer.css';
 import axios from 'axios';
 import React from 'react';
@@ -14,8 +14,6 @@ const sendGetRequest = () => {
 		url: `${endpoint}/categories`,
 		responseType: 'stream'
   }).then(response => {
-
-    console.log(response);
     return response.data;
   })
 };
@@ -24,7 +22,6 @@ const sendGetRequest = () => {
 const HomeContainer: React.FC<ContainerProps> = () => {
 	const [items, setItems] = React.useState([]);
   const itemIcons = [laptopOutline, tvOutline, watchOutline, tabletPortraitOutline, phonePortraitOutline]
-  console.log(itemIcons);
 	React.useEffect(() => {
 		sendGetRequest().then(data => setItems(data));
 	}, []);

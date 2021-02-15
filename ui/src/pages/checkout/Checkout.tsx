@@ -1,6 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton, IonRow, IonCol, IonButtons, IonImg, IonThumbnail, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton, IonRow, IonCol, IonButtons, IonImg, IonThumbnail, IonInput, IonSelect, IonSelectOption } from '@ionic/react';
 import './Checkout.css';
-import { personCircle, search, helpCircle, star, create, ellipsisHorizontal, ellipsisVertical, cartOutline, trashOutline } from 'ionicons/icons';
 import HeaderContainer from '../../components/header/HeaderContainer';
 import axios from 'axios';
 import React from 'react';
@@ -116,11 +115,11 @@ const Checkout: React.FC<ContainerProps> = () => {
               </IonRow>
               <IonItem>
                 <IonLabel position="stacked" >Full Name</IonLabel>
-                <IonInput value={accountName} onIonChange={e => setAccountName((e.target as HTMLInputElement).value)}/>
+                 <IonInput value={accountName} onIonChange={e => setAccountName((e.target as HTMLInputElement).value)}/>  eslint-disable-line
               </IonItem>
               <IonItem>
                 <IonLabel position="stacked">Email Address</IonLabel>
-                <IonInput  value={emailAddress} onIonChange={e => setEmailAddress((e.target as HTMLInputElement).value)} />
+                <IonInput  value={emailAddress} onIonChange={e => setEmailAddress((e.target as HTMLInputElement).value)} /> {/*eslint-disable-line */}
               </IonItem>
               <IonItem>
                 <IonLabel position="stacked">Payment Method</IonLabel>
