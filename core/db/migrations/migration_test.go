@@ -14,6 +14,6 @@ func TestMigration(t *testing.T) {
 		log.Fatalf("Error %v", err)
 	}
 	postgresClient := db.NewPostgresClient(config)
-	migration := migrations.NewMigration(config, postgresClient)
-	migration.Migrate()
+	migration := NewMigration(config, postgresClient)
+	migration.Migrate("")
 }
